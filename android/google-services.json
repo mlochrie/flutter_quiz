@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "701703997967",
+    "firebase_url": "https://quizapp-3641f-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "quizapp-3641f",
+    "storage_bucket": "quizapp-3641f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:701703997967:android:ffbf0dc47dda6e68e9f17a",
+        "android_client_info": {
+          "package_name": "com.samnatale.flutterquiz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "701703997967-v7g63v5gtrjcqbjral9okiotk2o93bat.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8_YqmyYpCD1WFSS6AvV6AzrLxh-0SLLQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "701703997967-v7g63v5gtrjcqbjral9okiotk2o93bat.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
