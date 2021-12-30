@@ -9,6 +9,12 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("HomeScreen"),
       ),
+      body: Center(
+        child: ElevatedButton(
+          child: const Text("About"),
+          onPressed: () => Navigator.pushNamed(context, '/about'),
+        ),
+      ),
     );
   }
 }
