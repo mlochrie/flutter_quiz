@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutterquiz/routes.dart';
 import 'package:flutterquiz/screens/home/home.dart';
+import 'package:flutterquiz/theme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,6 +42,7 @@ class _AppState extends State<App> {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
               routes: appRoutes,
+              theme: appTheme,
             );
           }
 
