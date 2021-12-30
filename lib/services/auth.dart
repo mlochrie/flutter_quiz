@@ -23,6 +23,7 @@ class AuthService {
     await FirebaseAuth.instance.signOut();
   }
 
+  // Sign in with Google Auth
   Future<void> googleLogin() async {
     try {
       // Natively bring up a window for the user to sign-in to their account
