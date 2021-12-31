@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
+part 'models.g.dart'; // Represents an automatically generated file
 
+@JsonSerializable() // Decorator
 class Topic {
   // Instance variables for Firestore values
   final String id;
@@ -15,21 +17,15 @@ class Topic {
     this.title = '',
   });
 
-  Topic.fromJson(Map<String, dynamic> json)
-      : id = json['id'],
-        img = json['img'],
-        quizzes = json['quizzes'],
-        title = json['title'];
-
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'img': img,
-        'quizzes': quizzes,
-        'title': title,
-      };
+  // Tells JsonSerialisable what to do
+  // Details here:
+  // https://docs.flutter.dev/development/data-and-backend/json
+  // Creating model classes the json_serializable way
+  factory Topic.fromJson(Map<String, dynamic> json) => _$TopicFromJson(json);
+  Map<String, dynamic> toJson() => _$TopicToJson(this);
 }
 
-@JsonSerializable()
+@JsonSerializable() // Decorator
 class Quiz {
   // Instance variables for Firestore values
   final String description;
@@ -46,9 +42,16 @@ class Quiz {
     this.title = '',
     this.topic = '',
   });
+
+  // Tells JsonSerialisable what to do
+  // Details here:
+  // https://docs.flutter.dev/development/data-and-backend/json
+  // Creating model classes the json_serializable way
+  factory Quiz.fromJson(Map<String, dynamic> json) => _$QuizFromJson(json);
+  Map<String, dynamic> toJson() => _$QuizToJson(this);
 }
 
-@JsonSerializable()
+@JsonSerializable() // Decorator
 class Report {
   // Instance variables for Firestore values
   String uid;
@@ -61,9 +64,16 @@ class Report {
     this.total = 0,
     this.topics = const {},
   });
+
+  // Tells JsonSerialisable what to do
+  // Details here:
+  // https://docs.flutter.dev/development/data-and-backend/json
+  // Creating model classes the json_serializable way
+  factory Report.fromJson(Map<String, dynamic> json) => _$ReportFromJson(json);
+  Map<String, dynamic> toJson() => _$ReportToJson(this);
 }
 
-@JsonSerializable()
+@JsonSerializable() // Decorator
 class Question {
   // Instance variables for Firestore values
   String text;
@@ -74,9 +84,17 @@ class Question {
     this.text = '',
     this.options = const [],
   });
+
+  // Tells JsonSerialisable what to do
+  // Details here:
+  // https://docs.flutter.dev/development/data-and-backend/json
+  // Creating model classes the json_serializable way
+  factory Question.fromJson(Map<String, dynamic> json) =>
+      _$QuestionFromJson(json);
+  Map<String, dynamic> toJson() => _$QuestionToJson(this);
 }
 
-@JsonSerializable()
+@JsonSerializable() // Decorator
 class Option {
   // Instance variables for Firestore values
   String value;
@@ -89,4 +107,11 @@ class Option {
     this.detail = '',
     this.correct = false,
   });
+
+  // Tells JsonSerialisable what to do
+  // Details here:
+  // https://docs.flutter.dev/development/data-and-backend/json
+  // Creating model classes the json_serializable way
+  factory Option.fromJson(Map<String, dynamic> json) => _$OptionFromJson(json);
+  Map<String, dynamic> toJson() => _$OptionToJson(this);
 }
