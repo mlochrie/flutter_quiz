@@ -1,5 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
-part 'models.g.dart'; // Represents an automatically generated file
+
+// Represents an automatically generated file once steps JsonSerialisable
+// steps completed 'flutter pub run build_runner build' creates this file
+part 'models.g.dart';
 
 @JsonSerializable() // Decorator
 class Topic {
