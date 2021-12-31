@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutterquiz/routes.dart';
-import 'package:flutterquiz/screens/home/home.dart';
 import 'package:flutterquiz/theme.dart';
 
 void main() {
