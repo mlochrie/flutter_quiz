@@ -32,7 +32,7 @@ class _AppState extends State<App> {
           // Check for errors
           if (snapshot.hasError) {
             // TODO: Add Error Screen
-            return Text('Error');
+            return const Text('Error');
           }
 
           // Once connected show the application
@@ -47,7 +47,7 @@ class _AppState extends State<App> {
 
           // If not connected and no errors then show loading
           // TODO: Add LoadingScreen
-          return Text('Loading');
+          return const Text('Loading');
         },
       ),
     );
