@@ -57,4 +57,26 @@ class FirestoreService {
       }
     });
   }
+
+  // Updates the current user's report document after completing the quiz
+  Future<void> updateUserReport(Quiz quiz) {
+    // Called based on event so current user can be grabbed
+    var user = AuthService().user!;
+    var ref = _db.collection('reports').doc(user.uid);
+
+    var data = {
+      // Uses Firestore to increment the total automatically by 1 or if it does
+      // not exist it will create it as 1
+      'total': FieldValue.increment(1),
+
+      // Uses Firestore to take the quiz ID and merge the value into a firestore
+      // list
+      'topics': {
+        quiz.topic: FieldValue.arrayUnion([quiz.id])
+      }
+    };
+
+    // Write to database, non destructive write
+    return ref.set(data, SetOptions(merge: true));
+  }
 }
