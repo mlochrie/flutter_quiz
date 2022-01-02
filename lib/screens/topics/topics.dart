@@ -10,13 +10,20 @@ class TopicsScreen extends StatelessWidget {
     return FutureBuilder<List<Topic>>(
       future: FirestoreService().getTopics(),
       builder: (context, snapshot) {
+        // If still waiting for get topics
         if (snapshot.connectionState == ConnectionState.waiting) {
           // TODO: Display loading screen
           return CircularProgressIndicator.adaptive();
-        } else if (snapshot.hasError) {
+        }
+
+        // If error occurs
+        else if (snapshot.hasError) {
           // TODO: Display error screen
           return Text(snapshot.error.toString());
-        } else if (snapshot.hasData) {
+        }
+
+        // If topics have been fetched
+        else if (snapshot.hasData) {
           var topics = snapshot.data!;
           return Scaffold(
             appBar: AppBar(
@@ -31,8 +38,10 @@ class TopicsScreen extends StatelessWidget {
               children: topics.map((topic) => Text(topic.title)).toList(),
             ),
           );
-        } else {
-          // No topics have been found
+        }
+
+        // If no topics have been found in Firebase
+        else {
           return const Text('No topics have been found');
         }
       },
