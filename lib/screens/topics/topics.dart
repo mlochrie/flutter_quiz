@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterquiz/screens/topics/topic_item.dart';
 import 'package:flutterquiz/services/services.dart';
 import 'package:flutterquiz/shared/bottom_nav.dart';
 
@@ -35,7 +36,7 @@ class TopicsScreen extends StatelessWidget {
               crossAxisCount: 2,
               crossAxisSpacing: 10.0,
               padding: const EdgeInsets.all(20.0),
-              children: topics.map((topic) => Text(topic.title)).toList(),
+              children: topics.map((topic) => TopicItem(topic: topic)).toList(),
             ),
           );
         }
