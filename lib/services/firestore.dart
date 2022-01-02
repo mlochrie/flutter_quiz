@@ -38,4 +38,23 @@ class FirestoreService {
     // Convert map to quiz model, if null return an empty map
     return Quiz.fromJson(snapshot.data() ?? {});
   }
+
+  // Listens to the current user's report document in Firestore
+  Stream<Report> streamReport() {
+    // Need to know current users id, if they login/logout we need to know
+    // So a stream is required to keep track of this
+    return AuthService().userStream.switchMap((user) {
+      // switchMap gives us access to the user, if the user is not null then we
+      // get a reference to the reports collection for the specific user uid
+      if (user != null) {
+        var ref = _db.collection('reports').doc(user.uid);
+        // Map the snapshot to a report model
+        return ref.snapshots().map((doc) => Report.fromJson(doc.data()!));
+      } else {
+        // Default report document, providing a way to listen to document in
+        // realtime and update automatically when logged in/logged out
+        return Stream.fromIterable([Report()]);
+      }
+    });
+  }
 }
