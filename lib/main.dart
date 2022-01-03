@@ -2,7 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutterquiz/routes.dart';
+import 'package:flutterquiz/services/services.dart';
 import 'package:flutterquiz/theme.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,12 +38,16 @@ class _AppState extends State<App> {
           }
 
           // Once connected show the application
-
           if (snapshot.connectionState == ConnectionState.done) {
-            return MaterialApp(
-              debugShowCheckedModeBanner: false,
-              routes: appRoutes,
-              theme: appTheme,
+            return StreamProvider(
+              // Function to return stream we want to use
+              create: (_) => FirestoreService().streamReport(),
+              initialData: Report(),
+              child: MaterialApp(
+                debugShowCheckedModeBanner: false,
+                routes: appRoutes,
+                theme: appTheme,
+              ),
             );
           }
 
